@@ -40,14 +40,9 @@ FEE_WALLETS = {
 # Optional whitelist of signer addresses. To enable whitelist filtering,
 # uncomment the block below and add desired signer addresses. When commented,
 # whitelist filtering is disabled automatically.
-SIGNER_WHITELIST = {
-    "3AFLpvAVUen48fPP9ahcwLoCGG6zv5YPiyAL49UJCBhs", # signer
-    "JD25qVdtd65FoiXNmR89JjmoJdYk9sjYQeSTZAALFiMy", # jupiter
-    "CKs1E69a2e9TmH4mKKLrXFF8kD3ZnwKjoEuXa6sz9WqX", # jupiter
-    "9hQBGnKqxYfaP3dtkEyYVLVwzYEEVK2vWa9V6rK4ZciE", # jupiter
-    "CKs1E69a2e9TmH4mKKLrXFF8kD3ZnwKjoEuXa6sz9WqX", # helius
-    "CKs1E69a2e9TmH4mKKLrXFF8kD3ZnwKjoEuXa6sz9WqX"
-}
+# SIGNER_WHITELIST = {
+#     "ExampleSignerAddress1111111111111111111111111111111",
+# }
 
 # Известные signer адреса для фильтрации (casino, bot, etc.)
 FILTERED_SIGNERS = {
@@ -325,8 +320,8 @@ def webhook():
                     sol_net_usd = signer_sol_change * sol_usd_price if sol_usd_price else 0
                     msg += f"\n{sol_emoji} <b>Net SOL change:</b> {signer_sol_change:.6f} (~${sol_net_usd:.2f})"
                     # Add final SPL token destination address (to_addr) as code block
-                    if 'to_addr' in locals() and to_addr:
-                        msg += f"\n🏁 <b>Final SPL destination:</b> <code>{to_addr}</code>"
+                    # if 'to_addr' in locals() and to_addr:
+                    #     msg += f"\n🏁 <b>Final SPL destination:</b> <code>{to_addr}</code>"
                     # Add copyable signer address
                     if signer_account:
                         msg += f"\n👤 <b>Signer:</b> <code>{signer_account}</code>"
@@ -372,9 +367,9 @@ def webhook():
                     amount_line = f"{emoji} <b>{amount:.6f}</b>{f' (~${usd:.2f})' if usd else ''}"
                     msg += (
                         f"\n🔸 <b>{name}</b> ({symbol})"
-                        f"\n📤 От: {shorten(from_addr)}"
-                        f"\n📥 Кому: {shorten(to_addr)}"
-                        f"\n💰 Сумма: {amount_line}"
+                        # f"\n📤 От: {shorten(from_addr)}"
+                        # f"\n📥 Кому: {shorten(to_addr)}"
+                        # f"\n💰 Сумма: {amount_line}"
                         f"\n<code>{mint}</code>\n"
                     )
 
